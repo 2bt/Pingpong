@@ -16,7 +16,6 @@ for _, name in ipairs({"go", "pad", "bad", "wall"}) do
 	sounds[name] = love.audio.newSource(name .. ".wav", "static")
 end
 function play_sound(name)
-	sounds[name]:rewind()
 	sounds[name]:play()
 end
 
@@ -138,28 +137,28 @@ function love.draw()
 
 
 	-- draw lines
-	G.setColor(50, 50, 50)
+	G.setColor(0.2, 0.2, 0.2)
 	G.line(400, 0, 400, 600)
 	G.circle("line", 400, 300, 100)
 
 	-- draw ball
-	G.setColor(100, 100, 150)
+	G.setColor(0.39, 0.39, 0.59)
 	G.circle("fill", ball_x, ball_y, 10, 20)
 	G.circle("line", ball_x, ball_y, 10, 20)
 
 	-- draw pads
-	G.setColor(200, 200, 200)
+	G.setColor(0.78, 0.78, 0.78)
 	G.rectangle("fill", 20, pad1_y - pad1_height / 2, 10, pad1_height)
 	G.rectangle("fill", 770, pad2_y - pad2_height / 2, 10, pad2_height)
 
 	-- draw score
 	G.setFont(small_font)
-	G.setColor(200, 200, 200)
+	G.setColor(0.78, 0.78, 0.78)
 	G.print(score1, 220, 20)
 	G.print(score2, 568, 20)
 
 	if game_over then
-		G.setColor(255, 255, 255)
+		G.setColor(1, 1, 1)
 		G.setFont(big_font)
 
 		if score1 == 0 and score2 == 0 then -- start screen
